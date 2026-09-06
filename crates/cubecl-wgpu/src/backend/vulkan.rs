@@ -456,6 +456,9 @@ fn register_types(props: &mut DeviceProperties, ext_feat: &ExtendedFeatures<'_>)
         ElemType::UInt(UIntKind::U32),
         ElemType::Int(IntKind::I32),
         ElemType::Float(FloatKind::F32),
+        // rag3weaver : Flex32 (stockage f32, matmul f16, accumulation f32), comme
+        // le backend WGSL l'inscrit déjà et comme cubecl-spirv sait l'émettre.
+        ElemType::Float(FloatKind::Flex32),
         ElemType::Bool,
     ];
 
